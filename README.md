@@ -13,6 +13,10 @@ First clone this directory and symlink
     $ ln -s ~/config/vimrc ~/.vimrc
     $ ln -s ~/config/tmux.conf ~/.tmux.conf
 
+We need exuberant-ctags for the Tagbar Vim plugin
+
+    $ sudo apt-get install exuberant-ctags
+
 Next clone Vundle (https://github.com/gmarik/vundle/) and extra fonts for Powerline
     
     $ git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
