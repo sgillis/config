@@ -37,6 +37,10 @@ Bundle 'Lokaltog/powerline'
 Bundle 'vim-indent-object'
 " Indent motion
 Bundle 'indent-motion'
+" View undo history
+Bundle 'sjl/gundo.vim'
+" Tabular for lining up text
+Bundle 'godlygeek/tabular'
 
 let NERDTreeIgnore = ['\.pyc$']
 
@@ -106,6 +110,7 @@ map <F6> :call TabMove(-1)<CR>
 map <F7> :call TabMove(1)<CR>
 map <F8> :TagbarToggle<CR>
 map <c-o> :tabnew 
+map <F4> :GundoToggle<CR>
 
 
 " ----------------------------------- "
