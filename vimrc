@@ -31,6 +31,8 @@ Bundle 'Lokaltog/vim-easymotion'
 Bundle 'tpope/vim-repeat'
 " Tagbar for browsing source code, needs exuberant-ctags
 Bundle 'majutsushi/tagbar'
+" Powerline statusline
+Bundle 'Lokaltog/powerline'
 
 let NERDTreeIgnore = ['\.pyc$']
 
@@ -42,7 +44,7 @@ syntax enable
 filetype plugin indent on							" Load file type plugins + indentation
 
 set showcmd														" Display incomplete commands
-set showmode													" Display the mode
+set noshowmode													" Display the mode
 set showmatch													" Show matching brackets
 
 set tabstop=2
@@ -58,6 +60,8 @@ set hidden
 set nu																" Show line numbers
 set cursorline												" Highlight current line
 set wildmode=list:longest							" Complete files like a shell
+
+set laststatus=2                      " Always show statusline
 
 colorscheme molokai										" Set a colorscheme
 
@@ -98,3 +102,10 @@ map <F6> :call TabMove(-1)<CR>
 map <F7> :call TabMove(1)<CR>
 map <F8> :TagbarToggle<CR>
 map <c-o> :tabnew 
+
+
+" ----------------------------------- "
+"  Extra source files
+"  ---------------------------------- "
+" Source this at the end, otherwise powerline will not work for some reason
+source ~/.vim/bundle/powerline/powerline/bindings/vim/plugin/powerline.vim
