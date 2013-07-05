@@ -72,6 +72,7 @@ set wildmode=list:longest							" Complete files like a shell
 
 set laststatus=2                      " Always show statusline
 
+set background=dark
 colorscheme molokai										" Set a colorscheme
 
 " ----------------------------------- "
