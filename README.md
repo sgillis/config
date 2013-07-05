@@ -14,6 +14,7 @@ First clone this directory and symlink
     $ ln -s ~/config/tmux.conf ~/.tmux.conf
     $ ln -s ~/config/powerline ~/.config/powerline
     $ ln -s ~/config/tmuxgo ~/usr/bin/tmuxgo
+    $ ln -s ~/config/bash_profile ~/.bash_profile
 
 Add 'export PATH=$PATH:~/usr/bin/tmuxgo' to bashrc
 
