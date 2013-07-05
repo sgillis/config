@@ -12,6 +12,8 @@ First clone this directory and symlink
     $ ln -s ~/config/vim ~/.vim
     $ ln -s ~/config/vimrc ~/.vimrc
     $ ln -s ~/config/tmux.conf ~/.tmux.conf
+    $ ln -s ~/config/tmuxgo ~/usr/bin/tmuxgo
+    $ export PATH=$PATH:~/usr/bin/tmuxgo
 
 We need exuberant-ctags for the Tagbar Vim plugin
 
