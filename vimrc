@@ -43,6 +43,7 @@ Bundle 'sjl/gundo.vim'
 Bundle 'godlygeek/tabular'
 
 let NERDTreeIgnore = ['\.pyc$']
+set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
 
 " ----------------------------------- "
 "		Settings													"
@@ -111,10 +112,3 @@ map <F7> :call TabMove(1)<CR>
 map <F8> :TagbarToggle<CR>
 map <c-o> :tabnew 
 map <F4> :GundoToggle<CR>
-
-
-" ----------------------------------- "
-"  Extra source files
-"  ---------------------------------- "
-" Source this at the end, otherwise powerline will not work for some reason
-source ~/.vim/bundle/powerline/powerline/bindings/vim/plugin/powerline.vim
