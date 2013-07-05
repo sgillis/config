@@ -34,3 +34,7 @@ The terminal should be configured to use one of these new fonts in order for the
 Install the Vim plugins
     
     $ vim +BundleInstall +qall
+
+We need to run the Powerline install script
+
+    $ sudo python ~/.vim/bundle/powerline/setup.py install

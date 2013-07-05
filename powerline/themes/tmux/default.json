@@ -38,11 +38,7 @@
 			},
 			{
 				"name": "weather",
-				"priority": 50,
-        "args": {
-          "unit": "c",
-          "location_query": "brussels, belgium",
-        }
+				"priority": 50
 			},
 			{
 				"name": "date"
