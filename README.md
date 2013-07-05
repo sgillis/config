@@ -28,6 +28,8 @@ Cache the new fonts
 
     $ fc-cache -vf ~/.fonts
 
+The terminal should be configured to use one of these new fonts in order for the Powerline to display correctly.
+
 Install the Vim plugins
     
     $ vim +BundleInstall +qall
