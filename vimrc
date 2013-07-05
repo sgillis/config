@@ -33,6 +33,10 @@ Bundle 'tpope/vim-repeat'
 Bundle 'majutsushi/tagbar'
 " Powerline statusline
 Bundle 'Lokaltog/powerline'
+" Indent object selection
+Bundle 'vim-indent-object'
+" Indent motion
+Bundle 'indent-motion'
 
 let NERDTreeIgnore = ['\.pyc$']
 
