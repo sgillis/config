@@ -1,0 +1,14 @@
+#!/bin/bash
+
+SESSION=$USER
+
+tmux has-session -t $SESSION
+if [ $? -eq 0 ]; then
+  echo "Session $SESSION already exists. Attaching."
+  sleep 1
+  TERM=screen-256color tmux attach -t $SESSION
+  exit 0;
+fi
+
+tmux new-session -d -s $SESSION
+TERM=screen-256color tmux attach -t $SESSION
