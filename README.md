@@ -14,7 +14,8 @@ First clone this directory and symlink
     $ ln -s ~/config/tmux.conf ~/.tmux.conf
     $ ln -s ~/config/powerline ~/.config/powerline
     $ ln -s ~/config/tmuxgo ~/usr/bin/tmuxgo
-    $ export PATH=$PATH:~/usr/bin/tmuxgo
+
+Add 'export PATH=$PATH:~/usr/bin/tmuxgo' to bashrc
 
 We need exuberant-ctags for the Tagbar Vim plugin
 
