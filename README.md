@@ -39,4 +39,5 @@ Install the Vim plugins
 
 We need to run the Powerline install script
 
-    $ sudo python ~/.vim/bundle/powerline/setup.py install
+    $ cd ~/.vim/bundle/powerline
+    $ sudo python setup.py install
