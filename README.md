@@ -55,4 +55,4 @@ To change the background periodically:
 
 and add
 
-    * * * * * DISPLAY=:0 GSETTINGS\_BACKEND=dconf python ~/git/config/wallpaper\_changer.py > ~/log/crontab.log 2>&1
+    * * * * * DISPLAY=:0 GSETTINGS_BACKEND=dconf python ~/git/config/wallpaper_changer.py > ~/log/crontab.log 2>&1
