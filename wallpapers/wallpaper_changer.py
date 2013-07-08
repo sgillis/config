@@ -5,7 +5,7 @@ Changes wallpaper to some random picture in the given directory.
 import os
 from random import choice
 
-picture_dir = '/home/san/Pictures/nature_wallpapers/'
+picture_dir = '/home/san/Pictures/NatGeo/'
 
 def change_wallpaper(directory):
   """Changes the current wallpaper to a random wallpaper in directory"""
