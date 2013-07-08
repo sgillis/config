@@ -47,7 +47,7 @@ Wallpapers setup
 
 To setup the wallpapers you first need to run the get\_wallpapers.py script. You
 can modify which subreddit is chosen and to which directory it is downloaded in
-the script.
+the script. The same directory needs to be specified in wallpaper\_changer.py.
 
 To change the background periodically:
 
@@ -55,4 +55,4 @@ To change the background periodically:
 
 and add
 
-    * * * * * DISPLAY=:0 GSETTINGS_BACKEND=dconf python ~/git/config/wallpaper_changer.py > ~/log/crontab.log 2>&1
+    */10 * * * * DISPLAY=:0 GSETTINGS_BACKEND=dconf python ~/git/config/wallpaper_changer.py > ~/log/crontab.log 2>&1
