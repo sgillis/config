@@ -41,3 +41,19 @@ We need to run the Powerline install script
 
     $ cd ~/.vim/bundle/powerline
     $ sudo python setup.py install
+
+Wallpapers setup
+----------------
+
+To setup the wallpapers you first need to run the get\_wallpapers.py script. You
+can modify which subreddit is chosen and to which directory it is downloaded in
+the script.
+
+To change the background periodically:
+
+    $ crontab -e
+
+and add
+
+    * * * * * DISPLAY=:0 GSETTINGS\_BACKEND=dconf python
+      ~/git/config/wallpaper\_changer.py > ~/log/crontab.log 2>&1
