@@ -31,7 +31,8 @@ Cache the new fonts
 
     $ fc-cache -vf ~/.fonts
 
-The terminal should be configured to use one of these new fonts in order for the Powerline to display correctly.
+The terminal should be configured to use one of these new fonts in order for the
+Powerline to display correctly.
 
 Install the Vim plugins
     
@@ -45,9 +46,10 @@ We need to run the Powerline install script
 Wallpapers setup
 ----------------
 
-To setup the wallpapers you first need to run the get\_wallpapers.py script. You
-can modify which subreddit is chosen and to which directory it is downloaded in
-the script. The same directory needs to be specified in wallpaper\_changer.py.
+To setup the wallpapers you first need to run the reddit\_wallpapers.py script
+or the natgeo\_wallpapers.py script. You can modify which subreddit is chosen
+and to which directory it is downloaded in the script. The same directory needs
+to be specified in wallpaper\_changer.py.
 
 To change the background periodically:
 
