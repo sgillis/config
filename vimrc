@@ -75,6 +75,9 @@ set laststatus=2                      " Always show statusline
 set background=dark
 colorscheme molokai										" Set a colorscheme
 
+" Turn off tab expanding when working on a Makefile or makefile
+:autocmd BufNewFile,BufRead [Mm]akefile* set noexpandtab tabstop=8
+
 " ----------------------------------- "
 "  Functions                          "
 " ----------------------------------- "
