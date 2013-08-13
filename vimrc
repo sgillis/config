@@ -43,6 +43,8 @@ Bundle 'sjl/gundo.vim'
 Bundle 'godlygeek/tabular'
 " Flake8 python checker
 Bundle 'vim-flake8'
+" Command-T (needs ruby support, found in vim-nox)
+Bundle 'wincent/Command-T'
 
 let NERDTreeIgnore = ['\.pyc$']
 set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
@@ -118,6 +120,6 @@ map <c-t> :NERDTreeTabsToggle<CR>
 map <F6> :call TabMove(-1)<CR>
 map <F7> :call TabMove(1)<CR>
 map <F8> :TagbarToggle<CR>
-map <c-o> :tabnew 
+" map <c-o> :tabnew 
 map <F4> :GundoToggle<CR>
 map <Leader>8 :call Flake8()<CR>

@@ -46,3 +46,9 @@ We need to run the Powerline install script
 We need flake8 for vim-flake8
 
     $ sudo pip install flake8
+
+To make Command-T work properly, we need vim with ruby support (vim-nox) and ruby installed. Then we need to do
+
+    $ cd ~/.vim/bundle/Command-T/ruby/command-t
+    $ ruby extconf.rb
+    $ make
