@@ -41,6 +41,8 @@ Bundle 'indent-motion'
 Bundle 'sjl/gundo.vim'
 " Tabular for lining up text
 Bundle 'godlygeek/tabular'
+" Flake8 python checker
+Bundle 'vim-flake8'
 
 let NERDTreeIgnore = ['\.pyc$']
 set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
@@ -56,9 +58,9 @@ set showcmd														" Display incomplete commands
 set noshowmode													" Display the mode
 set showmatch													" Show matching brackets
 
-set tabstop=2
-set shiftwidth=2
-set softtabstop=2											" Tab is two spaces
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4											" Tab is two spaces
 set expandtab													" Expand tab into spaces
 set autoindent												" Match indentation of previous line
 set pastetoggle=<F2>
@@ -77,6 +79,8 @@ colorscheme molokai										" Set a colorscheme
 
 " Turn off tab expanding when working on a Makefile or makefile
 :autocmd BufNewFile,BufRead [Mm]akefile* set noexpandtab tabstop=8
+" Call Flake8 check if saving python file
+" :autocmd BufWritePost *.py call Flake8()
 
 " ----------------------------------- "
 "  Functions                          "
@@ -105,7 +109,7 @@ endfunction
 
 
 " ----------------------------------- "
-"  Keybindings												"
+"  Keybindings                        "
 " ----------------------------------- "
 let mapleader = ","
 map gr :tabprev<CR>
@@ -116,3 +120,4 @@ map <F7> :call TabMove(1)<CR>
 map <F8> :TagbarToggle<CR>
 map <c-o> :tabnew 
 map <F4> :GundoToggle<CR>
+map <Leader>8 :call Flake8()<CR>

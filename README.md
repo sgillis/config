@@ -42,3 +42,7 @@ We need to run the Powerline install script
 
     $ cd ~/.vim/bundle/powerline
     $ sudo python setup.py install
+
+We need flake8 for vim-flake8
+
+    $ sudo pip install flake8
