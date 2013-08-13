@@ -1,5 +1,5 @@
-" ----------------------------------- "
-"		Vundle - Vim Plugins							"
+" ----------------------------------- "                                       
+"		Vundle - Vim Plugins	      "
 " ----------------------------------- "
 set nocompatible
 filetype off
@@ -50,34 +50,38 @@ let NERDTreeIgnore = ['\.pyc$']
 set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
 
 " ----------------------------------- "
-"		Settings													"
+"		Settings                      "
 " ----------------------------------- "
 set encoding=utf-8
 syntax enable
-filetype plugin indent on							" Load file type plugins + indentation
+filetype plugin indent on " Load file type plugins + indentation
 
-set showcmd														" Display incomplete commands
-set noshowmode													" Display the mode
-set showmatch													" Show matching brackets
+set showcmd               " Display incomplete commands
+set noshowmode            " Display the mode
+set showmatch             " Show matching brackets
 
 set tabstop=4
 set shiftwidth=4
-set softtabstop=4											" Tab is two spaces
-set expandtab													" Expand tab into spaces
-set autoindent												" Match indentation of previous line
+set softtabstop=4         " Tab is two spaces
+set expandtab             " Expand tab into spaces
+set autoindent            " Match indentation of previous line
 set pastetoggle=<F2>
 
-set incsearch													" Find as you type search
+set incsearch             " Find as you type search
 
 set hidden
-set nu																" Show line numbers
-set cursorline												" Highlight current line
-set wildmode=list:longest							" Complete files like a shell
+set nu                    " Show line numbers
+set cursorline            " Highlight current line
+set wildmode=list:longest " Complete files like a shell
 
-set laststatus=2                      " Always show statusline
+set laststatus=2          " Always show statusline
 
 set background=dark
-colorscheme molokai										" Set a colorscheme
+colorscheme molokai       " Set a colorscheme
+" Set colorcolumn from 80 characters onward
+let &colorcolumn=join(range(80,999),",")
+" Set the colorcolumn color
+highlight ColorColumn ctermbg=236
 
 " Turn off tab expanding when working on a Makefile or makefile
 :autocmd BufNewFile,BufRead [Mm]akefile* set noexpandtab tabstop=8
