@@ -41,6 +41,9 @@ Bundle 'indent-motion'
 Bundle 'sjl/gundo.vim'
 " Tabular for lining up text
 Bundle 'godlygeek/tabular'
+" Automatic complete popup menu
+Bundle 'othree/vim-autocomplpop'
+
 
 let NERDTreeIgnore = ['\.pyc$']
 set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
