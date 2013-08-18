@@ -43,6 +43,8 @@ Bundle 'sjl/gundo.vim'
 Bundle 'godlygeek/tabular'
 " Automatic complete popup menu
 Bundle 'othree/vim-autocomplpop'
+" L9 is needed for automatic complete
+Bundle 'L9'
 " Flake8 python checker
 Bundle 'vim-flake8'
 " Command-T (needs ruby support, found in vim-nox)
