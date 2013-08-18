@@ -31,7 +31,8 @@ Cache the new fonts
 
     $ fc-cache -vf ~/.fonts
 
-The terminal should be configured to use one of these new fonts in order for the Powerline to display correctly.
+The terminal should be configured to use one of these new fonts in order for the
+Powerline to display correctly.
 
 Install the Vim plugins
     
@@ -41,3 +42,13 @@ We need to run the Powerline install script
 
     $ cd ~/.vim/bundle/powerline
     $ sudo python setup.py install
+
+We need flake8 for vim-flake8
+
+    $ sudo pip install flake8
+
+To make Command-T work properly, we need vim with ruby support (vim-nox) and ruby installed. Then we need to do
+
+    $ cd ~/.vim/bundle/Command-T/ruby/command-t
+    $ ruby extconf.rb
+    $ make

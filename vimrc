@@ -1,5 +1,5 @@
-" ----------------------------------- "
-"		Vundle - Vim Plugins							"
+" ----------------------------------- "                                       
+"		Vundle - Vim Plugins	      "
 " ----------------------------------- "
 set nocompatible
 filetype off
@@ -43,40 +43,52 @@ Bundle 'sjl/gundo.vim'
 Bundle 'godlygeek/tabular'
 " Automatic complete popup menu
 Bundle 'othree/vim-autocomplpop'
-
+" Flake8 python checker
+Bundle 'vim-flake8'
+" Command-T (needs ruby support, found in vim-nox)
+Bundle 'wincent/Command-T'
 
 let NERDTreeIgnore = ['\.pyc$']
 set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
 
 " ----------------------------------- "
-"		Settings													"
+"		Settings                      "
 " ----------------------------------- "
 set encoding=utf-8
 syntax enable
-filetype plugin indent on							" Load file type plugins + indentation
+filetype plugin indent on " Load file type plugins + indentation
 
-set showcmd														" Display incomplete commands
-set noshowmode													" Display the mode
-set showmatch													" Show matching brackets
+set showcmd               " Display incomplete commands
+set noshowmode            " Display the mode
+set showmatch             " Show matching brackets
 
-set tabstop=2
-set shiftwidth=2
-set softtabstop=2											" Tab is two spaces
-set expandtab													" Expand tab into spaces
-set autoindent												" Match indentation of previous line
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4         " Tab is two spaces
+set expandtab             " Expand tab into spaces
+set autoindent            " Match indentation of previous line
 set pastetoggle=<F2>
 
-set incsearch													" Find as you type search
+set incsearch             " Find as you type search
 
 set hidden
-set nu																" Show line numbers
-set cursorline												" Highlight current line
-set wildmode=list:longest							" Complete files like a shell
+set nu                    " Show line numbers
+set cursorline            " Highlight current line
+set wildmode=list:longest " Complete files like a shell
 
-set laststatus=2                      " Always show statusline
+set laststatus=2          " Always show statusline
 
 set background=dark
-colorscheme molokai										" Set a colorscheme
+colorscheme molokai       " Set a colorscheme
+" Set colorcolumn from 80 characters onward
+let &colorcolumn=join(range(80,999),",")
+" Set the colorcolumn color
+highlight ColorColumn ctermbg=236
+
+" Turn off tab expanding when working on a Makefile or makefile
+:autocmd BufNewFile,BufRead [Mm]akefile* set noexpandtab tabstop=8
+" Call Flake8 check if saving python file
+" :autocmd BufWritePost *.py call Flake8()
 
 " ----------------------------------- "
 "  Functions                          "
@@ -105,7 +117,7 @@ endfunction
 
 
 " ----------------------------------- "
-"  Keybindings												"
+"  Keybindings                        "
 " ----------------------------------- "
 let mapleader = ","
 map gr :tabprev<CR>
@@ -114,5 +126,6 @@ map <c-t> :NERDTreeTabsToggle<CR>
 map <F6> :call TabMove(-1)<CR>
 map <F7> :call TabMove(1)<CR>
 map <F8> :TagbarToggle<CR>
-map <c-o> :tabnew 
+" map <c-o> :tabnew 
 map <F4> :GundoToggle<CR>
+map <Leader>8 :call Flake8()<CR>
