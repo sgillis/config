@@ -49,7 +49,7 @@ We need flake8 for vim-flake8
 
 To make Command-T work properly, we need vim with ruby support (vim-nox) and ruby installed. Then we need to do
 
-    $ sudo apt-get install ruby1.8-dev
+    $ sudo apt-get install ruby-dev
     $ cd ~/.vim/bundle/Command-T/ruby/command-t
     $ ruby extconf.rb
     $ make
