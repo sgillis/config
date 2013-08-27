@@ -131,3 +131,4 @@ map <F8> :TagbarToggle<CR>
 " map <c-o> :tabnew 
 map <F4> :GundoToggle<CR>
 map <Leader>8 :call Flake8()<CR>
+let g:CommandTAcceptSelectionTabMap=['<CR>', '<C-t>']
