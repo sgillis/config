@@ -42,13 +42,15 @@ Bundle 'sjl/gundo.vim'
 " Tabular for lining up text
 Bundle 'godlygeek/tabular'
 " Automatic complete popup menu
-Bundle 'othree/vim-autocomplpop'
+" Bundle 'othree/vim-autocomplpop'
 " L9 is needed for automatic complete
 Bundle 'L9'
 " Flake8 python checker
 Bundle 'vim-flake8'
 " Command-T (needs ruby support, found in vim-nox)
 Bundle 'wincent/Command-T'
+" Jedi Vim code completion
+Bundle 'davidhalter/jedi-vim'
 
 let NERDTreeIgnore = ['\.pyc$']
 set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
@@ -73,7 +75,9 @@ set pastetoggle=<F2>
 
 set incsearch             " Find as you type search
 
-set hidden
+" Hidden buffers
+" set hidden
+
 set nu                    " Show line numbers
 set cursorline            " Highlight current line
 set wildmode=list:longest " Complete files like a shell
@@ -91,6 +95,11 @@ highlight ColorColumn ctermbg=236
 :autocmd BufNewFile,BufRead [Mm]akefile* set noexpandtab tabstop=8
 " Call Flake8 check if saving python file
 " :autocmd BufWritePost *.py call Flake8()
+
+" Jedi vim settings
+" Disable autocompletion
+let g:jedi#completions_enabled = 0
+
 
 " ----------------------------------- "
 "  Functions                          "
@@ -132,3 +141,24 @@ map <F8> :TagbarToggle<CR>
 map <F4> :GundoToggle<CR>
 map <Leader>8 :call Flake8()<CR>
 let g:CommandTAcceptSelectionTabMap=['<CR>', '<C-t>']
+
+
+" ----------------------------------- "
+"  VirtualEnvs (thanks to kvsn)       "
+" ----------------------------------- "
+function! <SID>LoadVirtualEnv()
+    if $VIRTUAL_ENV != ''
+        python import os
+        python activation_script = os.environ['VIRTUAL_ENV'] + '/bin/activate_this.py'
+        python execfile(activation_script, dict(__file__=activation_script))
+        let config = $VIRTUAL_ENV . '/.vimrc'
+        if filereadable(config)
+            " To load omnicomplete autocompletion for a Django project, put
+            " the following in your virtualenv's .vimrc config:
+            " python os.environ['DJANGO_SETTINGS_MODULE'] = '<application>.settings'
+            exec 'source ' . config
+        endif
+    endif
+endfunction
+
+call <SID>LoadVirtualEnv()
