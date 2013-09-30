@@ -46,11 +46,13 @@ Bundle 'godlygeek/tabular'
 " L9 is needed for automatic complete
 Bundle 'L9'
 " Flake8 python checker
-Bundle 'vim-flake8'
+" Bundle 'vim-flake8'
 " Command-T (needs ruby support, found in vim-nox)
 Bundle 'wincent/Command-T'
 " Jedi Vim code completion
 Bundle 'davidhalter/jedi-vim'
+" Syntastic
+Bundle 'scrooloose/syntastic'
 
 let NERDTreeIgnore = ['\.pyc$']
 set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
@@ -103,6 +105,13 @@ highlight ColorColumn ctermbg=236
 " Command T ignore
 set wildignore+=*.pyc
 
+" Syntastic
+let g:syntastic_check_on_open=1
+let g:syntastic_enable_balloons=0
+let g:syntastic_auto_loc_list=1
+let g:syntatic_python_checker = ['flake8']
+let g:syntastic_python_flake8_args="--ignore=E501"
+
 
 " ----------------------------------- "
 "  Functions                          "
@@ -142,7 +151,7 @@ map <F7> :call TabMove(1)<CR>
 map <F8> :TagbarToggle<CR>
 " map <c-o> :tabnew 
 map <F4> :GundoToggle<CR>
-map <Leader>8 :call Flake8()<CR>
+map <Leader>8 :SyntasticToggle<CR>
 let g:CommandTAcceptSelectionTabMap=['<CR>', '<C-t>']
 
 
