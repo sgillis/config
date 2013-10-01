@@ -153,6 +153,7 @@ map <F8> :TagbarToggle<CR>
 map <F4> :GundoToggle<CR>
 map <Leader>8 :SyntasticToggle<CR>
 let g:CommandTAcceptSelectionTabMap=['<CR>', '<C-t>']
+cabbrev q lcl\|q
 
 
 " ----------------------------------- "
