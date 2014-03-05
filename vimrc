@@ -100,7 +100,7 @@ highlight ColorColumn ctermbg=236
 
 " Jedi vim settings
 " Disable autocompletion
-" let g:jedi#completions_enabled = 0
+let g:jedi#completions_enabled = 0
 
 " Command T ignore
 set wildignore+=*.pyc
