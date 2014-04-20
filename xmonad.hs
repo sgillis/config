@@ -9,7 +9,6 @@ main = do
     xmproc <- spawnPipe "/usr/bin/xmobar $HOME/.config/xmobar/xmobarrc"
     xmonad $ defaultConfig
         { modMask = mod4Mask
-        , workspaces = ["1:web", "2:dev", "3", "4", "5", "6", "7", "8", "9"]
         , manageHook = manageDocks <+> manageHook defaultConfig
         , layoutHook = avoidStruts $ layoutHook defaultConfig
         , logHook = dynamicLogWithPP xmobarPP
