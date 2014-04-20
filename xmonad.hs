@@ -1,8 +1,7 @@
 import XMonad
 import XMonad.Util.EZConfig(additionalKeys)
-import XMonad.Hooks.DynamicLog
 
-main = xmonad =<< dzen myConfig
+main = xmonad myConfig
 
 myConfig = defaultConfig
     { modMask = mod4Mask
