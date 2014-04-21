@@ -17,6 +17,8 @@ main = do
                         , ppLayout = \_ -> ""  -- Don't show layout information
                         , ppHiddenNoWindows = id  -- Show hidden empty workspaces
                         }
+        , handleEventHook = docksEventHook  -- Load status bar immediately, do not wait for next focus change
         } `additionalKeys`
         [ ((mod4Mask, xK_x), spawn "dmenu_run")
+        , ((mod4Mask, xK_z), sendMessage ToggleStruts)  -- Toggle status bar
         ]
