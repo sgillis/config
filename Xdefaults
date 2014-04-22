@@ -1,4 +1,4 @@
-urxvt*font:                 xft:Ubuntu Mono derivative Powerline:regular:size=9
+urxvt*font:                 xft:Inconsolata\ for\ Powerline:regular:size=9
 urxvt*scrollBar:            false
 urxvt*depth:                32
 
