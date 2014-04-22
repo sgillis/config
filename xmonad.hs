@@ -18,6 +18,7 @@ main = do
                         , ppHiddenNoWindows = id  -- Show hidden empty workspaces
                         }
         , handleEventHook = docksEventHook  -- Load status bar immediately, do not wait for next focus change
+        , terminal = "urxvt"
         } `additionalKeys`
         [ ((mod4Mask, xK_x), spawn "dmenu_run")
         , ((mod4Mask, xK_z), sendMessage ToggleStruts)  -- Toggle status bar
