@@ -7,4 +7,9 @@ function dualscreen() {
     xrandr --output VGA-0 --primary --auto --output DP-1 --right-of VGA-0 --auto
 }
 
+function singlescreen() {
+    xrandr --output VGA-0 --off
+    xrandr --output DP-4 --auto
+}
+
 alias battery='upower -i /org/freedesktop/UPower/devices/battery_BAT0'
