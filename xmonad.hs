@@ -22,4 +22,5 @@ main = do
         } `additionalKeys`
         [ ((mod4Mask, xK_x), spawn "dmenu_run")
         , ((mod4Mask, xK_z), sendMessage ToggleStruts)  -- Toggle status bar
+        , ((mod4Mask, xK_l), spawn "gnome-screensaver-command --lock")
         ]
