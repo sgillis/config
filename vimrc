@@ -109,8 +109,8 @@ set wildignore+=*.pyc
 let g:syntastic_check_on_open=1
 let g:syntastic_enable_balloons=0
 let g:syntastic_auto_loc_list=1
-let g:syntatic_python_checker = ['flake8']
-let g:syntastic_python_flake8_args="--ignore=E501"
+let g:syntastic_python_checkers = ['pylint']
+let g:syntastic_python_pylint_args = "--rcfile=~/.pylintrc"
 
 
 " ----------------------------------- "
