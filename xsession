@@ -1,2 +1,2 @@
-gnome-settings-daemon &
+unity-settings-daemon &
 xmonad
