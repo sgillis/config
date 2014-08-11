@@ -10,6 +10,9 @@
 		"virtualenv": {
 			"before": ""
 		},
+        "hsenv": {
+            "before": ""
+        },
 		"branch": {
 			"before": " "
 		}
@@ -25,6 +28,9 @@
 			{
 				"name": "virtualenv"
 			},
+            {
+                "name": "hsenv"
+            },
 			{
 				"name": "branch"
 			},
