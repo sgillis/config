@@ -1,4 +1,4 @@
-" ----------------------------------- "                                       
+" ----------------------------------- "
 "		Vundle - Vim Plugins	      "
 " ----------------------------------- "
 set nocompatible
@@ -11,48 +11,40 @@ Bundle 'gmarik/vundle'
 
 " Git in Vim
 Bundle 'tpope/vim-fugitive'
-" Snippets
-Bundle 'MarcWeber/vim-addon-mw-utils'
-Bundle 'tomtom/tlib_vim'
-Bundle 'garbas/vim-snipmate'
-Bundle 'honza/vim-snippets'
-" NERDTree filebrowser
-Bundle 'scrooloose/nerdtree.git'
-Bundle 'jistr/vim-nerdtree-tabs'
-" Commenting
-Bundle 'tpope/vim-commentary'
-" Surround
-Bundle 'tpope/vim-surround'
-" Ctrl-P
-Bundle 'kien/ctrlp.vim'
-" EasyMotion
-Bundle 'Lokaltog/vim-easymotion'
-" Repeat
-Bundle 'tpope/vim-repeat'
-" Tagbar for browsing source code, needs exuberant-ctags
-Bundle 'majutsushi/tagbar'
-" Powerline statusline
-Bundle 'Lokaltog/powerline'
-" Indent object selection
-Bundle 'vim-indent-object'
-" Indent motion
-Bundle 'indent-motion'
-" View undo history
+
+" Support
 Bundle 'sjl/gundo.vim'
-" Tabular for lining up text
-Bundle 'godlygeek/tabular'
-" Automatic complete popup menu
-" Bundle 'othree/vim-autocomplpop'
-" L9 is needed for automatic complete
-Bundle 'L9'
-" Flake8 python checker
-" Bundle 'vim-flake8'
-" Command-T (needs ruby support, found in vim-nox)
-Bundle 'wincent/Command-T'
-" Jedi Vim code completion
-Bundle 'davidhalter/jedi-vim'
-" Syntastic
+Bundle 'vim-indent-object'
+Bundle 'indent-motion'
 Bundle 'scrooloose/syntastic'
+Bundle 'Shougo/vimproc.vim'
+Bundle 'jgdavey/tslime.vim'
+Bundle 'ervandew/supertab'
+Bundle 'nathanaelkane/vim-indent-guides'
+
+" Bars, panels and files
+Bundle 'scrooloose/nerdtree.git'
+Bundle 'wincent/Command-T'
+Bundle 'majutsushi/tagbar'
+
+" Text manipulation
+Bundle 'godlygeek/tabular'
+Bundle 'tpope/vim-commentary'
+Bundle 'tpope/vim-surround'
+Bundle 'tpope/vim-repeat'
+Bundle 'vim-scripts/Align'
+
+" Python
+Bundle 'davidhalter/jedi-vim'
+
+" Completion
+" Bundle 'Shougo/neocomplete.vim'
+
+" Haskell
+Bundle 'raichoo/haskell-vim'
+Bundle 'eagletmt/ghcmod-vim'
+Bundle 'eagletmt/neco-ghc'
+Bundle 'Twinside/vim-hoogle'
 
 let NERDTreeIgnore = ['\.pyc$']
 set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
@@ -77,9 +69,6 @@ set pastetoggle=<F2>
 
 set incsearch             " Find as you type search
 
-" Hidden buffers
-" set hidden
-
 set nu                    " Show line numbers
 set cursorline            " Highlight current line
 set wildmode=list:longest " Complete files like a shell
@@ -94,9 +83,7 @@ let &colorcolumn=join(range(80,999),",")
 highlight ColorColumn ctermbg=236
 
 " Turn off tab expanding when working on a Makefile or makefile
-:autocmd BufNewFile,BufRead [Mm]akefile* set noexpandtab tabstop=8
-" Call Flake8 check if saving python file
-" :autocmd BufWritePost *.py call Flake8()
+:autocmd BufNewFile,BufRead [Mm]akefile* setl noexpandtab tabstop=8
 
 " Jedi vim settings
 " Disable autocompletion
@@ -111,6 +98,23 @@ let g:syntastic_enable_balloons=0
 let g:syntastic_auto_loc_list=1
 let g:syntastic_python_checkers = ['pylint']
 let g:syntastic_python_pylint_args = "--rcfile=~/.pylintrc"
+
+" Set to auto read when a file is changed
+set autoread
+
+" Haskell
+augroup haskell
+    " autocmd FileType haskell let g:neocomplete#enable_at_startup = 1
+    autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
+    autocmd FileType haskell map <silent> <leader><cr> :noh<cr>:GhcModTypeClear<cr>:SyntasticReset<cr>
+augroup END
+
+" Set 7 lines to the cursor
+set so=7
+
+" Search options
+set ignorecase
+set hlsearch
 
 
 " ----------------------------------- "
@@ -138,6 +142,17 @@ function! TabMove(direction)
     endif
 endfunction
 
+func! DeleteTrailingWS()
+    exe "normal mz"
+    %s/\s\+$//ge
+    exe "normal `z"
+endfunc
+
+augroup whitespace
+    autocmd!
+    autocmd BufWrite * :call DeleteTrailingWS()
+augroup END
+
 
 " ----------------------------------- "
 "  Keybindings                        "
@@ -149,29 +164,61 @@ map <c-t> :NERDTreeTabsToggle<CR>
 map <F6> :call TabMove(-1)<CR>
 map <F7> :call TabMove(1)<CR>
 map <F8> :TagbarToggle<CR>
-" map <c-o> :tabnew 
 map <F4> :GundoToggle<CR>
 map <Leader>8 :SyntasticToggle<CR>
 let g:CommandTAcceptSelectionTabMap=['<CR>', '<C-t>']
 cabbrev q lcl\|q
 
 
-" ----------------------------------- "
-"  VirtualEnvs (thanks to kvsn)       "
-" ----------------------------------- "
-function! <SID>LoadVirtualEnv()
-    if $VIRTUAL_ENV != ''
-        python import os
-        python activation_script = os.environ['VIRTUAL_ENV'] + '/bin/activate_this.py'
-        python execfile(activation_script, dict(__file__=activation_script))
-        let config = $VIRTUAL_ENV . '/.vimrc'
-        if filereadable(config)
-            " To load omnicomplete autocompletion for a Django project, put
-            " the following in your virtualenv's .vimrc config:
-            " python os.environ['DJANGO_SETTINGS_MODULE'] = '<application>.settings'
-            exec 'source ' . config
-        endif
-    endif
-endfunction
+" Slime
+vmap <silent> <Leader>rs <Plug>SendSelectionToTmux
+nmap <silent> <Leader>rs <Plug>NormalModeSendToTmux
+nmap <silent> <Leader>rv <Plug>SetTmuxVars
 
-call <SID>LoadVirtualEnv()
+" Alignment
+" Stop Align plugin from forcing its mappings on us
+let g:loaded_AlignMapsPlugin=1
+" Align on equal signs
+map <Leader>a= :Align =<CR>
+" Align on commas
+map <Leader>a, :Align ,<CR>
+" Align on pipes
+map <Leader>a<bar> :Align <bar><CR>
+" Prompt for align character
+map <leader>ap :Align
+
+" Tabular
+let g:haskell_tabular = 1
+
+" Slime {{{
+
+vmap <silent> <Leader>rs <Plug>SendSelectionToTmux
+nmap <silent> <Leader>rs <Plug>NormalModeSendToTmux
+nmap <silent> <Leader>rv <Plug>SetTmuxVars
+
+" }}}
+
+" Type of expression under cursor
+nmap <silent> <leader>ht :GhcModType<CR>
+" Insert type of expression under cursor
+nmap <silent> <leader>hT :GhcModTypeInsert<CR>
+" GHC errors and warnings
+nmap <silent> <leader>hc :SyntasticCheck ghc_mod<CR>
+" Haskell Lint
+let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['haskell'] }
+nmap <silent> <leader>hl :SyntasticCheck hlint<CR>
+
+" Hoogle the word under the cursor
+nnoremap <silent> <leader>hh :Hoogle<CR>
+
+" Hoogle and prompt for input
+nnoremap <leader>hH :Hoogle
+
+" Hoogle for detailed documentation (e.g. "Functor")
+nnoremap <silent> <leader>hi :HoogleInfo<CR>
+
+" Hoogle for detailed documentation and prompt for input
+nnoremap <leader>hI :HoogleInfo
+
+" Hoogle, close the Hoogle window
+nnoremap <silent> <leader>hz :HoogleClose<CR>
