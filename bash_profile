@@ -13,3 +13,13 @@ function singlescreen() {
 }
 
 alias battery='upower -i /org/freedesktop/UPower/devices/battery_BAT0'
+
+alias pygrep='cgrep --lang=Python '
+alias emacs='emacs -nw'
+alias hvim='docker run -it --rm -v $(pwd)/src:/src vimhaskell vim'
+alias docker-inspect-ip='docker inspect --format "{{ .NetworkSettings.IPAddress }}" '
+alias dnsdock='docker run -d -v /var/run/docker.sock:/var/run/docker.sock --name dnsdock -p 172.17.42.1:53:53/udp tonistiigi/dnsdock'
+
+export PYTHONPATH=~/.pyscripts/:$PYTHONPATH
+export PATH=/home/san/.haskell-vim-now/bin:$PATH
+if [ -e /home/san/.nix-profile/etc/profile.d/nix.sh ]; then . /home/san/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
