@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Label</key>
+	<string>net.routes.static</string>
+	<key>ProgramArguments</key>
+	<array>
+		 <string>route</string>
+		 <string>add</string>
+		 <string>-net</string>
+		 <string>172.17.0.0</string>
+		 <string>172.18.42.2</string>
+	</array>
+	<key>RunAtLoad</key>
+	<true/>
+	<key>ServiceDescription</key>
+	<string>Install static routes</string>
+</dict>
+</plist>
