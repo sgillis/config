@@ -79,4 +79,9 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-export DOCKER_HOST="tcp://172.18.42.2:4243"
+export DOCKER_HOST="tcp://10.2.0.10:4243"
+
+alias dnsdock='docker run -d --name dnsdock -p 172.18.42.2:53:53/udp tonistiigi/dnsdock -docker="tcp://172.18.42.2:4243"'
+alias skydns='docker run -d -p 10.2.0.10:53:53/udp --name skydns crosbymichael/skydns -nameserver 8.8.8.8:53 -domain docker'
+alias skydock='docker run -d --name skydock crosbymichael/skydock -ttl 30 -environment dev -s "tcp://10.2.0.10:4243" -domain docker -name skydns'
+alias route-docker='sudo route -n add -net 172.17.0.0 10.2.0.10'
