@@ -4,7 +4,7 @@
 set nocompatible
 filetype off
 
-set rtp+=~/.vim/bundle/vundle
+set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#rc()
 
 Bundle 'gmarik/vundle'
@@ -18,14 +18,14 @@ Bundle 'vim-indent-object'
 Bundle 'indent-motion'
 Bundle 'scrooloose/syntastic'
 Bundle 'Shougo/vimproc.vim'
-Bundle 'jgdavey/tslime.vim'
-Bundle 'ervandew/supertab'
+" Bundle 'jgdavey/tslime.vim'
+" Bundle 'ervandew/supertab'
 Bundle 'nathanaelkane/vim-indent-guides'
 
 " Bars, panels and files
-Bundle 'scrooloose/nerdtree.git'
-Bundle 'wincent/Command-T'
-Bundle 'majutsushi/tagbar'
+" Bundle 'scrooloose/nerdtree.git'
+" Bundle 'wincent/Command-T'
+" Bundle 'majutsushi/tagbar'
 
 " Text manipulation
 Bundle 'godlygeek/tabular'
@@ -35,19 +35,19 @@ Bundle 'tpope/vim-repeat'
 Bundle 'vim-scripts/Align'
 
 " Python
-Bundle 'davidhalter/jedi-vim'
+" Bundle 'davidhalter/jedi-vim'
 
 " Completion
 " Bundle 'Shougo/neocomplete.vim'
 
 " Haskell
-Bundle 'raichoo/haskell-vim'
-Bundle 'eagletmt/ghcmod-vim'
-Bundle 'eagletmt/neco-ghc'
-Bundle 'Twinside/vim-hoogle'
+" Bundle 'raichoo/haskell-vim'
+" Bundle 'eagletmt/ghcmod-vim'
+" Bundle 'eagletmt/neco-ghc'
+" Bundle 'Twinside/vim-hoogle'
 
-let NERDTreeIgnore = ['\.pyc$']
-set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
+" let NERDTreeIgnore = ['\.pyc$']
+" set rtp+=~/.vim/bundle/powerline/powerline/bindings/vim
 
 " ----------------------------------- "
 "		Settings                      "

@@ -85,3 +85,17 @@ alias dnsdock='docker run -d --name dnsdock -p 172.18.42.2:53:53/udp tonistiigi/
 alias skydns='docker run -d -p 10.2.0.10:53:53/udp --name skydns crosbymichael/skydns -nameserver 8.8.8.8:53 -domain docker'
 alias skydock='docker run -d --name skydock crosbymichael/skydock -ttl 30 -environment dev -s "tcp://10.2.0.10:4243" -domain docker -name skydns'
 alias route-docker='sudo route -n add -net 172.17.0.0 10.2.0.10'
+alias nvim="~/git/docker-neovim/run_nvim.sh"
+alias docker-pylint="~/git/docker-neovim/run_pylint.sh"
+alias em="emacsclient -t"
+if [ -e /Users/sgillis/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/sgillis/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
+
+unsetopt incappendhistory
+
+# The next line updates PATH for the Google Cloud SDK.
+source '/Users/sgillis/google-cloud-sdk/path.zsh.inc'
+
+# The next line enables shell command completion for gcloud.
+source '/Users/sgillis/google-cloud-sdk/completion.zsh.inc'
+
+export PATH=~/git/config/bin:$PATH
