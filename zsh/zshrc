@@ -97,5 +97,3 @@ source '/Users/sgillis/google-cloud-sdk/path.zsh.inc'
 
 # The next line enables shell command completion for gcloud.
 source '/Users/sgillis/google-cloud-sdk/completion.zsh.inc'
-
-export PATH=~/git/config/bin:$PATH

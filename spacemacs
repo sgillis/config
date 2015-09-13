@@ -205,7 +205,7 @@ layers configuration. You are free to put any user code."
 
 (defun dotspacemacs/config ()
   ;; Line numbering
-  (linum-mode)
+  (global-linum-mode)
   (setq linum-relative-format "%3s \u2502 ")
   (linum-relative-toggle)
 
@@ -218,10 +218,14 @@ layers configuration. You are free to put any user code."
   ;; Haskell interactive config
   (custom-set-variables
    '(haskell-process-log t)
-   '(haskell-process-type 'stack-ghci))
+   '(haskell-process-type 'ghci))
 
   ;; Extra keybindings
   (evil-leader/set-key "fn" 'find-file)
+  (evil-leader/set-key "w <up>" 'evil-window-up)
+  (evil-leader/set-key "w <down>" 'evil-window-down)
+  (evil-leader/set-key "w <left>" 'evil-window-left)
+  (evil-leader/set-key "w <right>" 'evil-window-right)
 )
 
 
