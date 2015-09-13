@@ -219,6 +219,9 @@ layers configuration. You are free to put any user code."
   (custom-set-variables
    '(haskell-process-log t)
    '(haskell-process-type 'stack-ghci))
+
+  ;; Extra keybindings
+  (evil-leader/set-key "fn" 'find-file)
 )
 
 
