@@ -39,6 +39,7 @@ values."
      python
      erlang
      haskell
+     docker
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -216,9 +217,13 @@ layers configuration. You are free to put any user code."
   (define-key evil-motion-state-map [mouse-1] 'silence)
 
   ;; Haskell interactive config
+  ;; (custom-set-variables
+  ;;  '(haskell-process-log t)
+  ;;  '(haskell-process-type 'ghci))
+  (add-hook 'haskell-mode-hook 'haskell-interactive-mode)
   (custom-set-variables
-   '(haskell-process-log t)
-   '(haskell-process-type 'ghci))
+   '(haskell-process-log t))
+  (setq haskell-interactive-mode-eval-mode 'fundamental-mode)
 
   ;; Extra keybindings
   (evil-leader/set-key "fn" 'find-file)
@@ -226,6 +231,16 @@ layers configuration. You are free to put any user code."
   (evil-leader/set-key "w <down>" 'evil-window-down)
   (evil-leader/set-key "w <left>" 'evil-window-left)
   (evil-leader/set-key "w <right>" 'evil-window-right)
+  (evil-leader/set-key "os" 'run-stylish-haskell)
+  (evil-leader/set-key "qe" 'spacemacs/prompt-kill-emacs)
+  (evil-leader/set-key "qq" 'delete-frame)
+  (evil-leader/set-key "bD" 'kill-buffer-and-window)
+
+  (turn-off-smartparens-mode)
+  (setq tab-width 4)
+
+  ;; Custom functions
+  (load-file "~/git/config/emacs/functions.el")
 )
 
 
