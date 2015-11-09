@@ -1,0 +1,3 @@
+#! /bin/bash
+
+docker run --rm -v /Users/sgillis/git/docker-stylish-haskell/file.hs:/file.hs stylish-haskell

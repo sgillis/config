@@ -2,7 +2,7 @@
   "Save current buffer to a tmp file."
   (interactive)
   (with-current-buffer (current-buffer)
-    (write-region (point-min) (point-max) "/tmp/emacstmp")))
+    (write-region (point-min) (point-max) "~/.emacstmp")))
 
 (defun docker-stylish-haskell ()
   "Let a docker process run stylish-haskell on current buffer."
@@ -10,9 +10,9 @@
   (with-current-buffer (current-buffer)
     (create-tmp-file)
     (shell-command
-     "docker run --rm -v /tmp/emacstmp:/file.hs stylish-haskell > /tmp/stylish-haskell-out")
+     "docker run --rm -v ~/.emacstmp:/file.hs stylish-haskell > ~/.stylish-haskell-out")
     (erase-buffer)
-    (insert-file-contents "/tmp/stylish-haskell-out")
+    (insert-file-contents "~/.stylish-haskell-out")
     ))
 
 (defun clean-docker-stuff ()

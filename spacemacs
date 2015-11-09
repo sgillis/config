@@ -40,6 +40,7 @@ values."
      erlang
      haskell
      docker
+     elm
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -206,6 +207,7 @@ layers configuration. You are free to put any user code."
 
 (defun dotspacemacs/config ()
   ;; Line numbering
+  (message "Print")
   (global-linum-mode)
   (setq linum-relative-format "%3s \u2502 ")
   (linum-relative-toggle)
@@ -231,13 +233,14 @@ layers configuration. You are free to put any user code."
   (evil-leader/set-key "w <down>" 'evil-window-down)
   (evil-leader/set-key "w <left>" 'evil-window-left)
   (evil-leader/set-key "w <right>" 'evil-window-right)
-  (evil-leader/set-key "os" 'run-stylish-haskell)
+  (evil-leader/set-key "os" 'docker-stylish-haskell)
   (evil-leader/set-key "qe" 'spacemacs/prompt-kill-emacs)
   (evil-leader/set-key "qq" 'delete-frame)
   (evil-leader/set-key "bD" 'kill-buffer-and-window)
 
   (turn-off-smartparens-mode)
   (setq tab-width 4)
+  (setq sgml-basic-offset 4)
 
   ;; Custom functions
   (load-file "~/git/config/emacs/functions.el")
