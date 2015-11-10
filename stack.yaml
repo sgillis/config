@@ -1,5 +1,2 @@
 docker:
     enable: true
-    mount:
-      - "/Users/sgillis/git/telegram"
-      - "/Users/sgillis/git/hiphy"
