@@ -91,3 +91,5 @@ alias em="emacsclient -t"
 if [ -e /Users/sgillis/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/sgillis/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
 
 unsetopt incappendhistory
+
+eval $(docker-machine env default)
