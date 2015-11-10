@@ -87,7 +87,6 @@ alias skydock='docker run -d --name skydock crosbymichael/skydock -ttl 30 -envir
 alias route-docker='sudo route -n add -net 172.17.0.0 10.2.0.10'
 alias nvim="~/git/docker-neovim/run_nvim.sh"
 alias docker-pylint="~/git/docker-neovim/run_pylint.sh"
-alias emacs="emacs -nw"
 alias em="emacsclient -t"
 if [ -e /Users/sgillis/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/sgillis/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
 

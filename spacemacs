@@ -8,9 +8,9 @@ You should not put any user code in this function besides modifying the variable
 values."
   (setq-default
    ;; Base distribution to use. This is a layer contained in the directory
-   ;; `!distribution'. For now available distributions are `spacemacs-core'
-   ;; or `spacemacs'. (default 'spacemacs-core)
-   dotspacemacs-distribution 'spacemacs-core
+   ;; `+distribution'. For now available distributions are `spacemacs-base'
+   ;; or `spacemacs'. (default 'spacemacs)
+   dotspacemacs-distribution 'spacemacs
    ;; List of additional paths where to look for configuration layers.
    ;; Paths must have a trailing slash (i.e. `~/.mycontribs/')
    dotspacemacs-configuration-layer-path '()
@@ -26,7 +26,7 @@ values."
      auto-completion
      better-defaults
      emacs-lisp
-     git
+     ;; git
      markdown
      org
      ;; (shell :variables
@@ -116,6 +116,8 @@ values."
    ;; By default the command key is `:' so ex-commands are executed like in Vim
    ;; with `:' and Emacs commands are executed with `<leader> :'.
    dotspacemacs-command-key ":"
+   ;; If non nil `Y' is remapped to `y$'. (default t)
+   dotspacemacs-remap-Y-to-y$ t
    ;; Location where to auto-save files. Possible values are `original' to
    ;; auto-save the file in-place, `cache' to auto-save the file to another
    ;; file stored in the cache directory and `nil' to disable auto-saving.
@@ -196,18 +198,14 @@ values."
   "Initialization function for user code.
 It is called immediately after `dotspacemacs/init'.  You are free to put any
 user code."
-  (linum-mode)
-)
+  )
 
 (defun dotspacemacs/user-config ()
   "Configuration function for user code.
  This function is called at the very end of Spacemacs initialization after
 layers configuration. You are free to put any user code."
-)
 
-(defun dotspacemacs/config ()
   ;; Line numbering
-  (message "Print")
   (global-linum-mode)
   (setq linum-relative-format "%3s \u2502 ")
   (linum-relative-toggle)
@@ -222,30 +220,25 @@ layers configuration. You are free to put any user code."
   ;; (custom-set-variables
   ;;  '(haskell-process-log t)
   ;;  '(haskell-process-type 'ghci))
-  (add-hook 'haskell-mode-hook 'haskell-interactive-mode)
-  (custom-set-variables
-   '(haskell-process-log t))
-  (setq haskell-interactive-mode-eval-mode 'fundamental-mode)
+  ;;   (add-hook 'haskell-mode-hook 'haskell-interactive-mode)
+  ;;   (custom-set-variables
+  ;;    '(haskell-process-log t))
+  ;;   (setq haskell-interactive-mode-eval-mode 'fundamental-mode)
 
   ;; Extra keybindings
   (evil-leader/set-key "fn" 'find-file)
-  (evil-leader/set-key "w <up>" 'evil-window-up)
-  (evil-leader/set-key "w <down>" 'evil-window-down)
-  (evil-leader/set-key "w <left>" 'evil-window-left)
-  (evil-leader/set-key "w <right>" 'evil-window-right)
   (evil-leader/set-key "os" 'docker-stylish-haskell)
   (evil-leader/set-key "qe" 'spacemacs/prompt-kill-emacs)
   (evil-leader/set-key "qq" 'delete-frame)
   (evil-leader/set-key "bD" 'kill-buffer-and-window)
 
   (turn-off-smartparens-mode)
-  (setq tab-width 4)
-  (setq sgml-basic-offset 4)
+  ;; (setq tab-width 4)
+  ;; (setq sgml-basic-offset 4)
 
   ;; Custom functions
-  (load-file "~/git/config/emacs/functions.el")
+  ;; (load-file "~/git/config/emacs/functions.el")
 )
-
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
