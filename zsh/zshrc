@@ -49,7 +49,7 @@ plugins=(git)
 
 # User configuration
 
-export PATH="/Users/sgillis/.nix-profile/bin:/Users/sgillis/.nix-profile/sbin:/usr/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/sgillis/.nix-profile/bin:/Users/sgillis/.nix-profile/sbin"
+export PATH="/Users/sgillis/git/config/bin:/Users/sgillis/.nix-profile/bin:/Users/sgillis/.nix-profile/sbin:/usr/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/sgillis/.nix-profile/bin:/Users/sgillis/.nix-profile/sbin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -93,3 +93,5 @@ if [ -e /Users/sgillis/.nix-profile/etc/profile.d/nix.sh ]; then . /Users/sgilli
 unsetopt incappendhistory
 
 eval $(docker-machine env default)
+
+export PATH=/Users/sgillis/.local/bin:$PATH
