@@ -23,7 +23,7 @@ values."
      ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
-     auto-completion
+     ;; auto-completion
      better-defaults
      emacs-lisp
      ;; git
@@ -36,11 +36,14 @@ values."
      syntax-checking
      ;; version-control
      themes-megapack
-     python
+     ;; python
      erlang
      haskell
-     docker
      elm
+     javascript
+     clojure
+     purescript
+     html
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -48,7 +51,7 @@ values."
    ;; configuration in `dotspacemacs/config'.
    dotspacemacs-additional-packages '()
    ;; A list of packages and/or extensions that will not be install and loaded.
-   dotspacemacs-excluded-packages '()
+   dotspacemacs-excluded-packages '(smartparens)
    ;; If non-nil spacemacs will delete any orphan packages, i.e. packages that
    ;; are declared in a layer which is not a member of
    ;; the list `dotspacemacs-configuration-layers'. (default t)
@@ -96,7 +99,7 @@ values."
    ;; Default font. `powerline-scale' allows to quickly tweak the mode-line
    ;; size to make separators look not too crappy.
    dotspacemacs-default-font '("Source Code Pro"
-                               :size 13
+                               :size 12
                                :weight normal
                                :width normal
                                :powerline-scale 1.1)
@@ -224,6 +227,10 @@ layers configuration. You are free to put any user code."
   ;;   (custom-set-variables
   ;;    '(haskell-process-log t))
   ;;   (setq haskell-interactive-mode-eval-mode 'fundamental-mode)
+  (custom-set-variables
+    '(haskell-process-type 'stack-ghci))
+  (add-hook 'haskell-mode-hook 'turn-on-haskell-indentation)
+  (add-to-list 'exec-path "~/.local/bin/")
 
   ;; Extra keybindings
   (evil-leader/set-key "fn" 'find-file)
@@ -238,7 +245,35 @@ layers configuration. You are free to put any user code."
 
   ;; Custom functions
   ;; (load-file "~/git/config/emacs/functions.el")
+
+  ;; Set bash as shell
+  (setq explicit-shell-file-name "/bin/bash")
+  (setq shell-file-name "bash")
+  (setq explicit-bash-args '())
+  (setenv "SHELL" shell-file-name)
+  (add-hook 'comint-output-filter-functions 'comint-strip-ctrl-m)
+
+  ;; Automatically elm-format on save
+  (setq elm-format-on-save t)
+
+  (setq-default js2-basic-offset 2
+                js-indent-level 2)
 )
 
 ;; Do not write anything past this comment. This is where Emacs will
 ;; auto-generate custom variable definitions.
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(safe-local-variable-values
+   (quote
+    ((haskell-process-use-ghci . t)
+     (haskell-indent-spaces . 4)))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(default ((t (:background nil)))))

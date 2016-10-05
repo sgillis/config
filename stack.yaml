@@ -1,2 +1,8 @@
 docker:
-    enable: true
+    enable: false
+
+templates:
+  params:
+    author-email: gillis.san@gmail.com
+    author-name: San Gillis
+    github-username: sgillis
