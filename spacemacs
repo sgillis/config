@@ -44,6 +44,9 @@ values."
      clojure
      purescript
      html
+     typescript
+     react
+     elixir
      )
    ;; List of additional packages that will be installed without being
    ;; wrapped in a layer. If you need some configuration for these
@@ -258,6 +261,44 @@ layers configuration. You are free to put any user code."
 
   (setq-default js2-basic-offset 2
                 js-indent-level 2)
+
+  (setq-default erlang-indent-level 2)
+
+  ;; React stuff
+  (setq-default
+    ;; js2-mode
+    js2-basic-offset 2
+    ;; web-mode
+    css-indent-offset 2
+    web-mode-markup-indent-offset 2
+    web-mode-css-indent-offset 2
+    web-mode-code-indent-offset 2
+    web-mode-attr-indent-offset 2)
+
+  (with-eval-after-load 'web-mode
+    (add-to-list 'web-mode-indentation-params '("lineup-args" . nil))
+    (add-to-list 'web-mode-indentation-params '("lineup-concats" . nil))
+    (add-to-list 'web-mode-indentation-params '("lineup-calls" . nil)))
+
+  (defun my-increment-number-decimal (&optional arg)
+    "Increment the number forward from point by 'arg'."
+    (interactive "p*")
+    (save-excursion
+      (save-match-data
+        (let (inc-by field-width answer)
+          (setq inc-by (if arg arg 1))
+          (skip-chars-backward "0123456789")
+          (when (re-search-forward "[0-9]+" nil t)
+            (setq field-width (- (match-end 0) (match-beginning 0)))
+            (setq answer (+ (string-to-number (match-string 0) 10) inc-by))
+            (when (< answer 0)
+              (setq answer (+ (expt 10 field-width) answer)))
+            (replace-match (format (concat "%0" (int-to-string field-width) "d")
+                                                                    answer)))))))
+
+  (global-set-key (kbd "C-c +") 'my-increment-number-decimal)
+
+  (setq org-hierarchical-todo-statistics nil)
 )
 
 ;; Do not write anything past this comment. This is where Emacs will
@@ -270,7 +311,7 @@ layers configuration. You are free to put any user code."
  '(safe-local-variable-values
    (quote
     ((haskell-process-use-ghci . t)
-     (haskell-indent-spaces . 4)))))
+     (haskell-indent-spaces . 5)))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
