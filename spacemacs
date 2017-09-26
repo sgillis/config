@@ -299,6 +299,13 @@ layers configuration. You are free to put any user code."
   (global-set-key (kbd "C-c +") 'my-increment-number-decimal)
 
   (setq org-hierarchical-todo-statistics nil)
+
+  (defun org-summary-todo (n-done n-not-done)
+    "Switch entry to DONE when all subentries are done, to TODO otherwise."
+    (let (org-log-done org-log-states)   ; turn off logging
+      (org-todo (if (= n-not-done 0) "DONE" "TODO"))))
+
+  (add-hook 'org-after-todo-statistics-hook 'org-summary-todo)
 )
 
 ;; Do not write anything past this comment. This is where Emacs will
