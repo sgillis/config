@@ -116,5 +116,6 @@ if ! shopt -oq posix; then
   fi
 fi
 
+alias e="emacs -nw"
 eval `dircolors $HOME/.dir_colors/dircolors`
 PATH="$HOME/.nix-profile/bin:$PATH"
