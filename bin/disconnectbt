@@ -1,0 +1,6 @@
+#! /bin/bash
+
+DEVICE="04:5D:4B:EA:1C:7A"
+bluetoothctl << EOF
+disconnect $DEVICE
+EOF
