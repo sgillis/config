@@ -143,7 +143,38 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-new_window 1pixel
+# Choose display mode
+set $displayMode "Set display mode [w]ork [l]aptop [h]ome"
+
+bindsym $mod+x mode $displayMode
+
+mode $displayMode {
+     bindsym w exec "~/.screenlayout/work.sh"; mode "default"
+     bindsym h exec "~/.screenlayout/home.sh"; mode "default"
+     bindsym l exec "~/.screenlayout/laptop.sh"; mode "default"
+
+     bindsym Return mode "default"
+     bindsym Escape mode "default"
+}
+
+# Move workspace to different screens
+set $moveMode "Move workspace left[h] right[l]"
+
+bindsym $mod+m mode $moveMode
+
+mode $moveMode {
+     bindsym h move workspace to output left
+     bindsym l move workspace to output right
+
+     bindsym q mode "default"
+     bindsym Return mode "default"
+     bindsym Escape mode "default"
+}
+
+# Remove border from windows
+new_window none
+
+# Lock screen
 bindsym $mod+Shift+p exec i3lock -e -i /home/sgillis/Pictures/alps.png
 
 # Start i3bar to display a workspace bar (plus the system information i3status
