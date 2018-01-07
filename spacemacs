@@ -314,6 +314,10 @@ you should place your code here."
   (set-terminal-parameter nil 'background-mode 'dark)
   (set-frame-parameter nil 'background-mode 'dark)
   (spacemacs/load-theme 'solarized)
+
+  ;; Disable mouse
+  (define-key evil-motion-state-map [down-mouse-1] 'silence)
+  (define-key evil-motion-state-map [mouse-1] 'silence)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
