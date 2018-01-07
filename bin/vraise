@@ -1,0 +1,4 @@
+#! /bin/bash
+
+SINK=`pactl list sinks | grep "Sink" | tail -n1 | sed "s/Sink #//"`
+pactl set-sink-volume $SINK +5%
