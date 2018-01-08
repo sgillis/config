@@ -321,6 +321,30 @@ you should place your code here."
   ;; Disable mouse
   (define-key evil-motion-state-map [down-mouse-1] 'silence)
   (define-key evil-motion-state-map [mouse-1] 'silence)
+
+  ;; Indentation
+  (setq-default erlang-indent-level 2)
+
+  ;; Line numbers
+  (spacemacs/toggle-line-numbers-on)
+  (setq linum-relative-format "%3s \u2502 ")
+  (spacemacs/linum-relative-toggle)
+
+  ;; No smart parens
+  (turn-off-smartparens-mode)
+
+  ;; Elm
+  (setq elm-format-on-save t)
+
+  ;; Org mode
+  (setq org-hierarchical-todo-statistics nil)
+
+  (defun org-summary-todo (n-done n-not-done)
+    "Switch entry to DONE when all subentries are done, to TODO otherwise."
+    (let (org-log-done org-log-states)   ; turn off logging
+      (org-todo (if (= n-not-done 0) "DONE" "TODO"))))
+
+  (add-hook 'org-after-todo-statistics-hook 'org-summary-todo)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
