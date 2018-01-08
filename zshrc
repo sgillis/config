@@ -93,6 +93,7 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias e="emacs -nw"
+alias rg="rg --type-add 'elm:*.elm'"
 eval `dircolors $HOME/.dir_colors/dircolors`
 
 PATH="$HOME/bin:$HOME/.local/bin:$HOME/.nix-profile/bin:$PATH"
