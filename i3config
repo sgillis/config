@@ -175,7 +175,7 @@ mode $moveMode {
 new_window none
 
 # Lock screen
-bindsym $mod+Shift+p exec i3lock -e -i /home/sgillis/Pictures/alps.png
+bindsym $mod+Shift+p exec /home/$USER/git/i3lock-multimonitor/lock
 
 # Media keys
 bindsym $mod+F1 exec vmute
