@@ -4,3 +4,6 @@ DEVICE="04:5D:4B:EA:1C:7A"
 bluetoothctl << EOF
 connect $DEVICE
 EOF
+
+sleep 8
+pacmd set-default-sink bluez_sink.04_5D_4B_EA_1C_7A

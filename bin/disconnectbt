@@ -4,3 +4,5 @@ DEVICE="04:5D:4B:EA:1C:7A"
 bluetoothctl << EOF
 disconnect $DEVICE
 EOF
+
+pacmd set-default-sink alsa_output.pci-0000_00_1f.3.analog-stereo
