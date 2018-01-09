@@ -334,6 +334,9 @@ you should place your code here."
        (sp-pair "'" nil :actions :rem)
        (sp-pair "\"" nil :actions :rem)))
 
+  ;; Scroll margins
+  (setq-default scroll-margin 7)
+
   ;; Elm
   (setq elm-format-on-save t)
 
