@@ -331,7 +331,12 @@ you should place your code here."
   (spacemacs/linum-relative-toggle)
 
   ;; No smart parens
-  (turn-off-smartparens-mode)
+  (eval-after-load 'smartparens
+    '(progn
+       (sp-pair "(" nil :actions :rem)
+       (sp-pair "[" nil :actions :rem)
+       (sp-pair "'" nil :actions :rem)
+       (sp-pair "\"" nil :actions :rem)))
 
   ;; Elm
   (setq elm-format-on-save t)
