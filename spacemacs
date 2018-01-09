@@ -262,7 +262,7 @@ values."
    ;;                       text-mode
    ;;   :size-limit-kb 1000)
    ;; (default nil)
-   dotspacemacs-line-numbers nil
+   dotspacemacs-line-numbers 'relative
    ;; Code folding method. Possible values are `evil' and `origami'.
    ;; (default 'evil)
    dotspacemacs-folding-method 'evil
@@ -324,11 +324,6 @@ you should place your code here."
 
   ;; Indentation
   (setq-default erlang-indent-level 2)
-
-  ;; Line numbers
-  (spacemacs/toggle-line-numbers-on)
-  (setq linum-relative-format "%3s \u2502 ")
-  (spacemacs/linum-relative-toggle)
 
   ;; No smart parens
   (eval-after-load 'smartparens
