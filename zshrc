@@ -97,3 +97,4 @@ alias rg="rg --type-add 'elm:*.elm'"
 eval `dircolors $HOME/.dir_colors/dircolors`
 
 PATH="$HOME/bin:$HOME/.local/bin:$HOME/.nix-profile/bin:$PATH"
+source ~/.nix-profile/etc/profile.d/nix.sh
