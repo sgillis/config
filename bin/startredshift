@@ -1,0 +1,3 @@
+#!/bin/sh
+
+redshift -c /home/sgillis/.config/redshift.conf &

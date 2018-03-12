@@ -1,0 +1,3 @@
+#!/bin/sh
+
+notify-send "Redshift" "Received $1, $2, $3"
