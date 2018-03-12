@@ -1,0 +1,9 @@
+#! /usr/bin/env bash
+
+git fetch -p
+git remote prune origin
+git branch -vv | grep ': gone]' | awk '{print $1}' > /tmp/branches-to-be-removed
+${EDITOR:-vim} /tmp/branches-to-be-removed
+for branch in `cat /tmp/branches-to-be-removed`; do
+    git branch -D $branch;
+done
