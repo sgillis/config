@@ -1,0 +1,12 @@
+- name: Install nix packages
+  script: install-nix-package.sh "{{ item }}"
+  with_items: "{{ nixpackages }}"
+
+- name: Symlink nix packages
+  file:
+    src: "{{ home_dir }}/.nix-profile/bin/{{ item }}"
+    dest: "/usr/local/bin/{{ item }}"
+    state: link
+  with_items: "{{ symlinkednixpackages }}"
+  become: yes
+  become_user: root

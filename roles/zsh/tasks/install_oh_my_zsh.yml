@@ -1,0 +1,12 @@
+- name: Create temp directory for installer script
+  file:
+    path: "{{ tmp_dir }}"
+    state: directory
+
+- name: Get oh-my-zsh installer script
+  get_url:
+    url: "https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh"
+    dest: "{{ tmp_dir }}/oh-my-zsh-install"
+
+# - name: Execute install script
+#   command: "bash {{ tmp_dir }}/oh-my-zsh-install"

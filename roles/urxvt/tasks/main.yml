@@ -1,0 +1,4 @@
+- name: Copy Xdefaults
+  copy:
+    src: Xdefaults
+    dest: "{{ home_dir }}/.Xdefaults"

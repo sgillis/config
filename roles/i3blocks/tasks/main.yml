@@ -1,0 +1,9 @@
+- name: Make sure i3blocks config dir exists
+  file:
+    path: "{{ home_dir }}/.config/i3blocks"
+    state: directory
+
+- name: Copy i3block config
+  copy:
+    src: config
+    dest: "{{ home_dir }}/.config/i3blocks/config"

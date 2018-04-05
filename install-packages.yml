@@ -1,0 +1,6 @@
+- hosts: all
+  roles:
+    - apt-packages
+    - nix
+    - nix-packages
+    - scripts

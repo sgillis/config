@@ -1,0 +1,2 @@
+export PATH="$HOME/.local/bin:$PATH"
+. $HOME/.nix-profile/etc/profile.d/nix.sh

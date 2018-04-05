@@ -1,0 +1,15 @@
+- name: Make sure polybar config dir exists
+  file:
+    path: "{{ home_dir }}/.config/polybar"
+    state: directory
+
+- name: Copy polybar config
+  copy:
+    src: config
+    dest: "{{ home_dir }}/.config/polybar/config"
+
+- name: Copy polybar launch script
+  copy:
+    src: launch.sh
+    dest: "{{ home_dir }}/.config/polybar/launch.sh"
+    mode: 0777

@@ -1,0 +1,15 @@
+- name: Check if oh-my-zsh is installed
+  stat:
+    path: "{{ home_dir }}/.oh-my-zsh"
+  register: zsh_path
+
+- name: Install oh-my-zsh
+  include_tasks: install_oh_my_zsh.yml
+  when: zsh_path.stat.exists == false
+
+- name: Set user shell
+  user:
+    name: sgillis
+    shell: /usr/bin/zsh
+  become: yes
+  become_user: root

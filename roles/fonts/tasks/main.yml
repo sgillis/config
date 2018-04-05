@@ -1,0 +1,6 @@
+- name: Clone source code pro repo
+  git:
+    repo: "https://github.com/adobe-fonts/source-code-pro.git"
+    depth: 1
+    dest: "{{ home_dir }}/.local/share/fonts/source-code-pro"
+    version: release

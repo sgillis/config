@@ -1,0 +1,41 @@
+- name: Install apt packages
+  apt:
+    name: "{{ item }}"
+    update_cache: yes
+    install_recommends: no
+  with_items:
+    - psmisc
+    - sysstat
+    - xserver-xorg
+    - xinit
+    - lightdm
+    - i3
+    - i3blocks
+    - i3lock
+    - zsh
+    - udisks2
+    - fonts-font-awesome
+    - fonts-powerline
+    - libnotify-bin
+    - dunst
+    - rxvt-unicode
+    - network-manager
+    - network-manager-gnome
+    - bluetooth
+    - blueman
+    - alsa-utils
+    - pulseaudio
+    - pulseaudio-module-bluetooth
+    - snapd
+    - feh
+    - lxappearance
+    - materia-gtk-theme
+    - curl
+    - emacs
+    - git
+    - tmux
+    - rofi
+    - telegram-desktop
+    - gparted
+  become: yes
+  become_user: root

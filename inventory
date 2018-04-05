@@ -1,0 +1,4 @@
+imac ansible_connection=local
+
+[desktop]
+imac

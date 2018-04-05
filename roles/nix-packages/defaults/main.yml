@@ -1,0 +1,14 @@
+nixpackages:
+  - firefox
+  - htop
+  - playerctl
+  - polybar
+  - scrot
+  - imagemagick
+
+symlinkednixpackages:
+  - firefox
+  - polybar
+  - scrot
+  - convert
+  - playerctl

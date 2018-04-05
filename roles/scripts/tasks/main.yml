@@ -1,0 +1,30 @@
+- name: Make sure ~/.local/bin exists
+  file:
+    path: "{{ home_dir }}/.local/bin"
+    state: directory
+
+- name: Copy ansible-install script
+  copy:
+    src: ansible-install
+    dest: "{{ home_dir }}/.local/bin/ansible-install"
+    mode: 0777
+
+- name: Copy ansible-configure script
+  copy:
+    src: ansible-configure
+    dest: "{{ home_dir }}/.local/bin/ansible-configure"
+    mode: 0777
+
+- name: Copy i3lock-blur script
+  copy:
+    src: i3lock-blur
+    dest: "{{ home_dir }}/.local/bin/i3lock-blur"
+    mode: 0777
+
+- name: Symlink i3lock-blur script
+  file:
+    src: "{{ home_dir }}/.local/bin/i3lock-blur"
+    dest: "/usr/local/bin/i3lock-blur"
+    state: link
+  become: yes
+  become_user: root

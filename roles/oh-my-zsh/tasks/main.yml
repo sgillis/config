@@ -1,0 +1,9 @@
+- name: Copy zshrc config
+  copy:
+    src: zshrc
+    dest: "{{ home_dir }}/.zshrc"
+
+- name: Copy zsh theme
+  copy:
+    src: theme
+    dest: "{{ home_dir }}/.oh-my-zsh/themes/minimal.zsh-theme"

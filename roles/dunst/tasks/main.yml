@@ -1,0 +1,9 @@
+- name: Make sure polybar config dir exists
+  file:
+    path: "{{ home_dir }}/.config/dunst"
+    state: directory
+
+- name: Copy dunst config
+  copy:
+    src: dunstrc
+    dest: "{{ home_dir }}/.config/dunst/dunstrc"

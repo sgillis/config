@@ -1,0 +1,4 @@
+- name: Create .xprofile
+  copy:
+    src: xprofile
+    dest: "{{ home_dir }}/.xprofile"
