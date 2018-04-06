@@ -1,3 +1,4 @@
 * auto screen locker
   xautolock
 * spacemacs minor mode symbols
+* redshift systemd
