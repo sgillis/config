@@ -5,6 +5,7 @@ nixpackages:
   - polybar
   - scrot
   - imagemagick
+  - ripgrep
 
 symlinkednixpackages:
   - firefox
