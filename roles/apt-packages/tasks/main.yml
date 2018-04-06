@@ -13,6 +13,7 @@
     - i3blocks
     - i3lock
     - zsh
+    - build-essential
     - udisks2
     - fonts-font-awesome
     - fonts-powerline
