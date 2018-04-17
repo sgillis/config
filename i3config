@@ -200,4 +200,5 @@ bar {
 
 exec feh --bg-scale /home/sgillis/Pictures/mountains.jpg
 # exec startredshift
-# exec --no-startup-id nm-applet
+exec --no-startup-id nm-applet
+exec --no-startup-id blueman-applet
