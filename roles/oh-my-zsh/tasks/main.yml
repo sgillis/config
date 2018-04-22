@@ -3,7 +3,12 @@
     src: zshrc
     dest: "{{ home_dir }}/.zshrc"
 
+- name: Make sure oh-my-zsh custom themes dir exists
+  file:
+    path: "{{ home_dir }}/.oh-my-zsh/custom/themes"
+    state: directory
+
 - name: Copy zsh theme
   copy:
     src: theme
-    dest: "{{ home_dir }}/.oh-my-zsh/themes/minimal.zsh-theme"
+    dest: "{{ home_dir }}/.oh-my-zsh/custom/themes/minimal.zsh-theme"
