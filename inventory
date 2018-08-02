@@ -1,4 +1,6 @@
 imac ansible_connection=local
+oria ansible_connection=local
 
 [desktop]
 imac
+oria

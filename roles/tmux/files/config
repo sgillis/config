@@ -53,6 +53,7 @@ set -g history-limit 10000
 # Set copy commands
 #bind-key -t vi-copy 'v' begin-selection
 #bind-key -t vi-copy 'y' copy-selection
+bind -T copy-mode-vi y send-keys -X copy-pipe-and-cancel 'xclip -in -selection clipboard'
 
 # Remove escape key timeout
 set -s -g escape-time 0

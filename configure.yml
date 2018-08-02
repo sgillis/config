@@ -1,12 +1,12 @@
 - hosts: all
   roles:
-    - X
-    - i3
-    - i3blocks
-    - bash
+    # - X
+    # - i3
+    # - i3blocks
+    # - bash
     - spacemacs
-    - polybar
-    - dunst
+    # - polybar
+    # - dunst
     - tmux
-    - urxvt
+    # - urxvt
     - oh-my-zsh
