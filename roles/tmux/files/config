@@ -69,6 +69,10 @@ bind -n M-S-Left select-pane -L
 bind -n M-S-Right select-pane -R
 bind -n M-S-Up select-pane -U
 bind -n M-S-Down select-pane -D
+bind -n M-h select-pane -L
+bind -n M-l select-pane -R
+bind -n M-k select-pane -U
+bind -n M-j select-pane -D
 unbind-key h        ; bind-key h        select-pane -L
 unbind-key j        ; bind-key j        select-pane -D
 unbind-key k        ; bind-key k        select-pane -U
