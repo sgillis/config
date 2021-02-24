@@ -554,6 +554,9 @@ before packages are loaded."
   (setq lsp-tcp-connection-timeout 500)
   (add-hook 'erlang-mode-hook #'lsp)
   (setq lsp-ui-doc-position 'top)
+  (setq lsp-headerline-breadcrumb-enable nil)
+  (setq lsp-ui-sideline-enable nil)
+  (setq lsp-ui-doc-include-signature t)
 
   ;; Enable fill column indicator mode for all modes
   (add-hook 'after-change-major-mode-hook 'display-fill-column-indicator-mode)
