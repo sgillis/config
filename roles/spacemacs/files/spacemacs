@@ -506,6 +506,8 @@ before packages are loaded."
   (setq erlang-indent-guard 2)
   (setq erlang-argument-indent 2)
 
+  (spacemacs/set-leader-keys-for-major-mode 'erlang-mode
+    "gf" 'helm-imenu)
   ;; (spacemacs/set-leader-keys-for-major-mode 'erlang-mode
   ;;   "fd" 'edts-find-source-under-point
   ;;   "fb" 'edts-find-source-unwind
